@@ -1,7 +1,7 @@
 import re
-# ([-+]?[\s]*([0-9]+[\s]*\*[/s]*[\s]*)?X([\s]*\^[\s]*[0-9]+)?)|([-+]?[\s]*[0-9])
 
 pattern = r"(([-+]?)[\s]*([0-9]+[\s]*\*?[/s]*[\s]*)?X([\s]*\^[\s]*[0-9]+)?)|([-+]?[\s]*[0-9]+)"
+
 
 def get_max_equation_pow(result):
     max_pow = 0
@@ -42,11 +42,43 @@ def parse_coefficients(input_str: str, max_pow):
     return l
 
 
+def validate_equation(input_str):
+    results = re.findall(pattern, input_str)
+    recognised = "".join(line[0] if line[0] != '' else line[4] for line in results).replace(" ", "")
+    print(recognised)
+    j = 0
+    for i in range(len(input_str)):
+        if input_str[i] != ' ':
+            if input_str[i] != recognised[j]:
+                print("error ")
+                return i
+            j += 1
+    return -1
+
+
+def check_input(eq_parts: list):
+    if len(eq_parts) != 2:
+        return "No or too many '=' found"
+    for p in eq_parts:
+        if p.replace(" ", "") == "":
+            return "Part of equation can not be left blank"
+    index_right = validate_equation(eq_parts[0])
+    if index_right >= 0:
+        return "Unrecognised symbol '%s' at index %i" % (eq_parts[0][index_right], index_right)
+    index_left = validate_equation(eq_parts[1])
+    if index_left >= 0:
+        return "Unrecognised symbol '%s' at index %i" % (eq_parts[1][index_left], index_right + len(eq_parts[0]) + 1)
+    return False
+
+
+
 def parse_input(input_str: str):
     eq_parts = input_str.split('=')
-    if len(eq_parts) != 2:
-        return "No '=' found"
-    max_pow = get_max_equation_pow(re.findall(pattern, input_str))
+    error = check_input(eq_parts)
+    if error != False:
+        return error
+
+    max_pow = max(get_max_equation_pow(re.findall(pattern, input_str)), 2)
     right = parse_coefficients(eq_parts[0], max_pow)
     left = parse_coefficients(eq_parts[1], max_pow)
 
