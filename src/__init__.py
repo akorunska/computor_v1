@@ -1,4 +1,6 @@
 from .parse_input import parse_input
+from .solve_equation_with_degree_0 import solve_equation_with_degree_0
+from .solve_linear_equation import solve_linear_equation
 from .solve_quadratic_equation import solve_quadratic_equation
 from .get_formalized_equation import get_formalized_equation
 from .ComplexNumber import ComplexNumber
