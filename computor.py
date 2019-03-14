@@ -14,6 +14,15 @@ def get_polynomial_degree(coefficients):
     return 0
 
 
+def handle_lobachevsky_method(coefficients):
+    print("It looks like equation inputted has degree greater then 2.")
+    print("Hopefully you know what you are doing 🤔")
+    print("Presuming all roots are real numbers, trying to solve the equation using lobachevsky method... ")
+    res = lobachevsky_method(len(coefficients) - 1, list(reversed(coefficients)))
+    print("Caution: this answers are approximate:")
+    print(sorted(res))
+
+
 if __name__ == "__main__":
     input_str = ' '.join(sys.argv[1:])
     coefficients = parse_input(input_str)
@@ -26,20 +35,11 @@ if __name__ == "__main__":
 
     if len(coefficients) > 3:
         # handle polynomials with degree bigger then two using lobachevsky method
-        print("It looks like equation inputted has degree greater then 2.")
-        print("Hopefully you know what you are doing 🤔")
-        print("Presuming all roots are real numbers, trying to solve the equation using lobachevsky method... ")
-        res = lobachevsky_method(len(coefficients) - 1, list(reversed(coefficients)))
-        print("Caution: this answers are approximate:")
-        print(sorted(res))
+        handle_lobachevsky_method(coefficients)
     elif coefficients[0] != 0:
         solve_quadratic_equation(coefficients[0], coefficients[1], coefficients[2])
     elif coefficients[1] != 0:
         solve_linear_equation(coefficients[1], coefficients[2])
     else:
         solve_equation_with_degree_0(coefficients[2])
-
-
-
-
 

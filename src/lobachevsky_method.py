@@ -1,5 +1,6 @@
 from .custom_math import *
 
+
 def quadr(n, a):
     b = []
     i = 0
@@ -40,7 +41,7 @@ def get_results(n, b, p, initial_coefficients):
     i = 1
 
     while i <= n:
-        val = (b[n - i] / b[n - i + 1]) ** (1 / 2 ** p)
+        val = root((b[n - i] / b[n - i + 1]), pow(2, p))
         f_x = f(initial_coefficients, val)
         f_mx = f(initial_coefficients, -val)
         # print(val, f_x, f_mx)
