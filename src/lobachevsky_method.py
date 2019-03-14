@@ -6,12 +6,12 @@ def quadr(n, a):
     i = 0
 
     while i <= n:
-        b.append(a[i] ** 2)
+        b.append(pow(a[i], 2))
         j = 1
         added_val = 0
         while j <= n - i:
             if i - j >= 0:
-                added_val += ((-1) ** j) * a[i - j] * a[i + j]
+                added_val += pow((-1), j) * a[i - j] * a[i + j]
             j += 1
         b[i] += 2 * added_val
         i += 1
@@ -24,7 +24,7 @@ def norm_dist(n, a, b):
 
     while i < n:
         if a[i] != 0:
-            dist += (1 - b[i] / (a[i] ** 2)) ** 2
+            dist += (1 - b[i] / pow(a[i], 2)) ** 2
         i += 1
     return sqrt(dist)
 
@@ -32,7 +32,7 @@ def norm_dist(n, a, b):
 def f(coefficients, x):
     value = 0
     for i in range(len(coefficients)):
-        value += x ** i * coefficients[i]
+        value += pow(x, i) * coefficients[i]
     return value
 
 
