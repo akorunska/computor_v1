@@ -1,4 +1,4 @@
-
+from .custom_math import *
 
 def solve_linear_equation(a, b):
     print("Solution: ")

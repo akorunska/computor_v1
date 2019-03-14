@@ -4,3 +4,5 @@ from .solve_linear_equation import solve_linear_equation
 from .solve_quadratic_equation import solve_quadratic_equation
 from .get_formalized_equation import get_formalized_equation
 from .ComplexNumber import ComplexNumber
+from .lobachevsky_method import lobachevsky_method
+

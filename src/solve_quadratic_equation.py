@@ -1,4 +1,5 @@
 from .ComplexNumber import ComplexNumber
+from .custom_math import *
 
 
 def count_discriminant(a, b, c):

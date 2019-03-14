@@ -4,7 +4,7 @@ from src import solve_quadratic_equation
 from src import solve_linear_equation
 from src import solve_equation_with_degree_0
 from src import get_formalized_equation
-from src import ComplexNumber
+from src import lobachevsky_method
 
 
 def get_polynomial_degree(coefficients):
@@ -26,7 +26,12 @@ if __name__ == "__main__":
 
     if len(coefficients) > 3:
         # handle polynomials with degree bigger then two using lobachevsky method
-        pass
+        print("It looks like equation inputted has degree greater then 2.")
+        print("Hopefully you know what you are doing 🤔")
+        print("Presuming all roots are real numbers, trying to solve the equation using lobachevsky method... ")
+        res = lobachevsky_method(len(coefficients) - 1, list(reversed(coefficients)))
+        print("Caution: this answers are approximate:")
+        print(res)
     elif coefficients[0] != 0:
         solve_quadratic_equation(coefficients[0], coefficients[1], coefficients[2])
     elif coefficients[1] != 0:

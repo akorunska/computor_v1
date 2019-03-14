@@ -1,4 +1,5 @@
 import re
+from .custom_math import *
 
 pattern = r"(([-+]?)[\s]*([0-9]+[\s]*\*?[/s]*[\s]*)?X([\s]*\^[\s]*[0-9]+)?)|([-+]?[\s]*[0-9]+)"
 

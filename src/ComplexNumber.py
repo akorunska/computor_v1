@@ -1,4 +1,5 @@
 from .get_formalized_equation import count_digits_after_decimal_point
+from .custom_math import *
 
 
 class ComplexNumber:
@@ -32,13 +33,8 @@ class ComplexNumber:
 
     @staticmethod
     def sqrt(value):
-        eps = 0.00000001
-        current_value = abs(value)
-        prev_value = 0
-        while abs(prev_value - current_value) > eps:
-            prev_value = current_value
-            current_value = 1 / 2 * (current_value + abs(value)/current_value)
+        srt_of_module = sqrt(abs(value))
         if value >= 0:
-            return current_value
-        return ComplexNumber(0, -1 * current_value), ComplexNumber(0, current_value)
+            return srt_of_module
+        return ComplexNumber(0, -1 * srt_of_module), ComplexNumber(0, srt_of_module)
 

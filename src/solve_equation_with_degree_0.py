@@ -1,3 +1,4 @@
+from .custom_math import *
 
 def solve_equation_with_degree_0(a):
     if (a == 0):
