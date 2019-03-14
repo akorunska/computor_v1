@@ -83,7 +83,7 @@ Discriminant strictly negative, getting answer as two complex numbers:
 
 ### polynomial equations with degree bigger then 3
 This feature is quite experimental.
-It`s usage suggests that the equation has indeed n roots that are real numbers.
+It`s usage suggests that all n roots fo the equation are real numbers.
 
 Lobachevsky method is being used as a method for finding approximate roots.
 
