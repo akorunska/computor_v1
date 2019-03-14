@@ -6,7 +6,7 @@ def abs(val):
 
 
 def sqrt(val):
-    if val < 0:
+    if val <= 0:
         return 0
     eps = 0.00000001
     current_value = abs(val)
@@ -25,7 +25,7 @@ def pow(val, pow):
 
 
 def root(val, n=2):
-    if val < 0:
+    if val <= 0:
         return 0
     eps = 0.00000001
     current_value = abs(val)
