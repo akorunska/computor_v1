@@ -67,15 +67,15 @@ def check_input(eq_parts: list):
     if index_right >= 0:
         return (
             "%s\n" % (eq_parts[0] + "=" + eq_parts[1]) +
-            " " * index_right + "^\ns"
+            " " * index_right + "^\n"
             "Unrecognised symbol '%s' at index %i" % (eq_parts[0][index_right], index_right)
         )
     index_left = validate_equation(eq_parts[1])
     if index_left >= 0:
         return (
             "%s\n" % (eq_parts[0] + "=" + eq_parts[1]) +
-            " " * (index_left + len(eq_parts[0]) + 1) + "^\ns"
-            " Unrecognised symbol '%s' at index %i" % (eq_parts[1][index_left], index_left + len(eq_parts[0]) + 1)
+            " " * (index_left + len(eq_parts[0]) + 1) + "^\n"
+            "Unrecognised symbol '%s' at index %i" % (eq_parts[1][index_left], index_left + len(eq_parts[0]) + 1)
         )
     return False
 

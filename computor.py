@@ -31,7 +31,7 @@ if __name__ == "__main__":
         print("Presuming all roots are real numbers, trying to solve the equation using lobachevsky method... ")
         res = lobachevsky_method(len(coefficients) - 1, list(reversed(coefficients)))
         print("Caution: this answers are approximate:")
-        print(res)
+        print(sorted(res))
     elif coefficients[0] != 0:
         solve_quadratic_equation(coefficients[0], coefficients[1], coefficients[2])
     elif coefficients[1] != 0:
