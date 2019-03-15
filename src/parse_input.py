@@ -87,6 +87,8 @@ def parse_input(input_str: str):
         return error
 
     max_pow = max(get_max_equation_pow(re.findall(pattern, input_str)), 2)
+    if max_pow >= 8:
+        return "Greatest power of X (%i) is too big." % max_pow
     right = parse_coefficients(eq_parts[0], max_pow)
     left = parse_coefficients(eq_parts[1], max_pow)
 

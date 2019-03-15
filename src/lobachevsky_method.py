@@ -56,16 +56,23 @@ def lobachevsky_method(n, a):
     b = quadr(n, a)
     p = 1
 
-    while norm_dist(n, a, b) > 0.9:
-        print(a, "  =>\n", b, "\n\n")
-        a = b
-        b = quadr(n, a)
-        if a == b:
-            break
-        p += 1
     try:
+        while norm_dist(n, a, b) > 0.9:
+            print(a, "  =>\n", b, "\n\n")
+            a = b
+            b = quadr(n, a)
+            if a == b:
+                break
+            p += 1
         return get_results(n, b, p, initial_coefficients)
+
     except ZeroDivisionError:
+        print("How about adding more non-zero coefficients?")
+    except OverflowError:
+        print("Those numbers are too big (")
+    except Exception as e:
+        print("Something is wrong:", e)
+    finally:
         print("Lobachevsky method does not seem to work fine here, sorry")
         exit(1)
 
