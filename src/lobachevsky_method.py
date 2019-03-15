@@ -72,7 +72,6 @@ def lobachevsky_method(n, a):
         print("Those numbers are too big (")
     except Exception as e:
         print("Something is wrong:", e)
-    finally:
-        print("Lobachevsky method does not seem to work fine here, sorry")
-        exit(1)
+    print("Lobachevsky method does not seem to work fine here, sorry")
+    exit(1)
 
